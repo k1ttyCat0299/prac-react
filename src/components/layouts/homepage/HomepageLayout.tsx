@@ -1,18 +1,19 @@
 import { ReactNode } from 'react';
 import Header from './Header';
+import { Outlet } from 'react-router-dom';
 
 interface HomepageLayout {
   children: ReactNode;
 }
 
-const HomepageLayout = ({ children }: HomepageLayout) => {
+const HomepageLayout = () => {
   return (
     <div className="homepage-container">
       <div className="header">
         <Header />
       </div>
       <div className="content">
-        <main>{children}</main>
+        <Outlet />
       </div>
     </div>
   );

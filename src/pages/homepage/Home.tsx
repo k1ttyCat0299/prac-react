@@ -1,7 +1,9 @@
-import React from 'react';
+import useDevice from '../../hooks/useDevice';
 
 const Home = () => {
-  return <div>Home</div>;
+  const { isMobile } = useDevice();
+
+  return <div>{String(isMobile)}Home</div>;
 };
 
 export default Home;

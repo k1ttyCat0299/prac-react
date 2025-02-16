@@ -1,19 +1,15 @@
-import { ReactNode } from 'react';
 import Gnb from './Gnb';
 import Footer from './Footer';
+import { Outlet } from 'react-router-dom';
 
-interface SiteLayout {
-  children: ReactNode;
-}
-
-const SiteLayout = ({ children }: SiteLayout) => {
+const SiteLayout = () => {
   return (
     <div className="siteService-container">
       <div className="gnb">
         <Gnb />
       </div>
       <div className="content">
-        <main>{children}</main>
+        <Outlet />
       </div>
       <div className="footer">
         <Footer />

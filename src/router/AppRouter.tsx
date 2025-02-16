@@ -1,22 +1,46 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomepageLayout from '../components/layout/homepage/HomepageLayout';
-import Home from '../pages/homepage/Home';
-import UnderContruction from '../pages/homepage/UnderConstruction';
-import SiteLayout from '../components/layout/site/SiteLayout';
+// layouts
+import { HomepageLayout, MobileHomepageLayout, SiteLayout } from "../components/layouts";
+// pages
+import { Home, Login, UnderConstruction } from '../pages/homepage'
+import { NoticeList } from "../pages/notice";
+import { RiskworkList } from '../pages/riskwork';
+import NotFound from '../pages/error/NotFound';
+// hooks
+import useDevice from '../hooks/useDevice';
 
 const AppRouter = () => {
+  const { isMobile } = useDevice();
+
+  const getLayout = (type: 'homepage' | 'site') => {
+    switch (type) {
+      case 'homepage':
+        return isMobile ? <MobileHomepageLayout /> : <HomepageLayout />
+      case 'site':
+        return <SiteLayout />
+      default:
+        return null;
+    }
+  }
+
   return (
     <Router>
       <Routes>
-        <Route element={<HomepageLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/underConstruction" element={<UnderContruction />} />
+        {/* Homepage Layout Routes */}
+        <Route path='/' element={getLayout('homepage')}>
+          <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="underConstruction" element={<UnderConstruction />} />
         </Route>
 
-        <Route element={<SiteLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/underConstruction" element={<UnderContruction />} />
+        {/* Site Layout Routes */}
+        <Route path='/site' element={getLayout('site')}>
+          <Route path="notices" element={<NoticeList />} />
+          <Route path="riskworks" element={<RiskworkList />} />
         </Route>
+
+        {/* 404 */}
+        <Route path='*' element={<NotFound />}/>
       </Routes>
     </Router>
   );

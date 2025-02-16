@@ -5,26 +5,27 @@
 div {
   box-sizing: border-box;
 }
+
 .container {
   position: relative; /* 부모 컨테이너는 상대적으로 위치 */
   width: 100%;
   height: 100vh;
 }
 
-.header {
-  position: absolute; /* 헤더는 절대 위치 */
+/* .header {
+  flex-shrink: 0;
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  background-color: #4caf4f6b;
+  height: 90px;
+  background-color: rgba(19, 20, 22, 0.70);
   color: white;
   text-align: center;
-  z-index: 2; /* content는 header보다 아래에 배치 */
-}
+  z-index: 2;
+} */
 
 .content {
-  position: absolute; /* 콘텐츠도 절대 위치 */
+  position: absolute; /* 콘텐츠 절대 위치 */
   top: 0; /* 동일한 위치 */
   left: 0;
   width: 100%;
@@ -33,4 +34,73 @@ div {
   color: #333;
   opacity: 0.5; /* 겹치는 부분을 더 구분할 수 있도록 */
   z-index: 1; /* content는 header보다 아래에 배치 */
+}
+
+
+/* figma create */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 90px;
+  background-color: rgba(19, 20, 22, 0.70);
+  padding: 10px 20px;
+  color: white;
+  z-index: 2; /* content는 header보다 아래에 배치 */
+  flex-shrink: 0;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.navbar-login {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.portal-login {
+  background: linear-gradient(90deg, #1a73e8, #7f53ac);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.site-login {
+  background: #e0e0e0;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 14px;
+  cursor: pointer;
 }
