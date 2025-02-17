@@ -8,11 +8,9 @@ interface HomepageLayout {
 
 const HomepageLayout = () => {
   return (
-    <div className="homepage-container">
-      <div className="header">
-        <Header />
-      </div>
-      <div className="content">
+    <div className="homepage-layout">
+      <Header />
+      <div className="content-container">
         <Outlet />
       </div>
     </div>

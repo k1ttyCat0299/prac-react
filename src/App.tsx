@@ -1,5 +1,5 @@
-import './App.css';
-import AppRouter from './router/AppRouter';
+import '@/App.scss';
+import AppRouter from '@/router/AppRouter';
 
 // mobile을 구분해서 라우팅
 const App = () => {

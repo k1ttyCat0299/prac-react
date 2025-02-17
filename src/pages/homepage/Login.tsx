@@ -1,9 +1,20 @@
-import React from 'react'
+import { useLocation } from 'react-router-dom';
 
-const Login = () => {
-  return (
-    <div>Login</div>
-  )
+interface LocationState {
+  state: {
+    isPortalLogin: boolean;
+  };
 }
 
-export default Login
+const Login = () => {
+  const location = useLocation() as LocationState;
+  const isPortalLogin = location.state?.isPortalLogin ?? false;
+
+  return (
+    <div className="home-container">
+      {isPortalLogin ? 'Portal Login' : 'Site Login'}
+    </div>
+  );
+};
+
+export default Login;

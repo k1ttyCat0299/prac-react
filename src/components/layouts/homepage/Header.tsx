@@ -1,26 +1,46 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import ffLogo from '../../../assets/icon_logo_ff.svg';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (isPortalLogin: boolean) => {
+    navigate('/login', { state: { isPortalLogin } });
+  };
+
   return (
     <>
-      <nav className="navbar">
-        <div className="navbar-logo">
-          <img src="/logo.png" alt="Flex Formular" className="logo-img" />
-          <span className="logo-text">Flex formular</span>
-        </div>
-        <ul className="navbar-links">
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/underConstruction'>통합안전관리</Link></li>
-          <li><Link to='/underConstruction'>상품소개</Link></li>
-          <li><Link to='/underConstruction'>도입문의</Link></li>
-        </ul>
-        <div className="navbar-login">
-          <button className="portal-login">포탈 로그인</button>
-          <button className="site-login">현장 로그인</button>
-        </div>
-      </nav>
+      <header className="header">
+        <nav className="navbar">
+          <div className="navbar-logo">
+            <img src={ffLogo} alt="Flex Formular" className="logo-img" />
+          </div>
+          <ul className="navbar-menus">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/underConstruction">통합안전관리</Link>
+            </li>
+            <li>
+              <Link to="/underConstruction">상품소개</Link>
+            </li>
+            <li>
+              <Link to="/underConstruction">도입문의</Link>
+            </li>
+          </ul>
+          <div className="navbar-login">
+            <button className="portal-login" onClick={() => handleLogin(true)}>
+              포탈 로그인
+            </button>
+            <button className="site-login" onClick={() => handleLogin(false)}>
+              현장 로그인
+            </button>
+          </div>
+        </nav>
+      </header>
     </>
-  )
+  );
 };
 
 export default Header;

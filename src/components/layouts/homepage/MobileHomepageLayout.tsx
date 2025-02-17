@@ -2,9 +2,9 @@ import { Outlet } from 'react-router-dom';
 
 const MobileHomepageLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="homepage-layout">
       <div>Mobile!!</div>
-      <main className="flex-1 px-4 py-2">
+      <main className="content-container">
         <Outlet />
       </main>
     </div>
