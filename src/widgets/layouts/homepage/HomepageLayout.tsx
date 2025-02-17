@@ -1,15 +1,13 @@
-import { ReactNode } from 'react';
-import Header from './Header';
 import { Outlet } from 'react-router-dom';
-
-interface HomepageLayout {
-  children: ReactNode;
-}
+import useDevice from '@/shared/lib/hooks/useDevice';
+import Header from '@/widgets/layouts/homepage/HomepageHeader';
 
 const HomepageLayout = () => {
+  const { isMobile } = useDevice();
+
   return (
     <div className="homepage-layout">
-      <Header />
+      <Header isMobile={isMobile}/>
       <div className="content-container">
         <Outlet />
       </div>

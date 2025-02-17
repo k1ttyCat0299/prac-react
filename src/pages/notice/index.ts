@@ -1,1 +1,1 @@
-export { default as NoticeList } from './NoticeList'
+export { default as NoticeList } from './ui/NoticeList'

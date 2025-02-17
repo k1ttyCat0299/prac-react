@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 
 interface DeviceInfo {
   isMobile: boolean;
+  isTablet: boolean;
   isDesktop: boolean;
 }
 
 const useDevice = (): DeviceInfo => {
   const [deviceInfo, setDeviceInfo] = useState<DeviceInfo>({
     isMobile: false,
+    isTablet: false,
     isDesktop: true,
   });
 
@@ -16,7 +18,8 @@ const useDevice = (): DeviceInfo => {
     const updateDeviceInfo = () => {
       const width = window.innerWidth;
       setDeviceInfo({
-        isMobile: width < 450,
+        isMobile: width < 540,
+        isTablet: width >= 540 && width < 1024,
         isDesktop: width >= 1024,
       });
     };

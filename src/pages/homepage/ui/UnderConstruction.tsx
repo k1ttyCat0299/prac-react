@@ -1,4 +1,4 @@
-import useDevice from '@/hooks/useDevice';
+import useDevice from '@/shared/lib/hooks/useDevice';
 
 const UnderConstruction = () => {
   const { isMobile } = useDevice();
