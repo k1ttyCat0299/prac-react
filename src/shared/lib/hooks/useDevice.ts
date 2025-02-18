@@ -18,8 +18,8 @@ const useDevice = (): DeviceInfo => {
     const updateDeviceInfo = () => {
       const width = window.innerWidth;
       setDeviceInfo({
-        isMobile: width < 540,
-        isTablet: width >= 540 && width < 1024,
+        isMobile: width <= 540,
+        isTablet: width > 540 && width < 1024,
         isDesktop: width >= 1024,
       });
     };
